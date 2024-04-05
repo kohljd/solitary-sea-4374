@@ -19,6 +19,7 @@ RSpec.describe "Welcome Page", type: :feature do
       check "Fire Nation"
       click_on "Search For Members"
       expect(current_path).to eq("/search")
+      expect(page).to have_content("Fire Nation Members")
     end
   end
 end
