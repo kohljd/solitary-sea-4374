@@ -1,0 +1,25 @@
+<h1><%= @affiliation %> Members </h1>
+
+Total People: <%= @members.count %>
+
+<h3> Members List </h3>
+<section class="member">
+  <% @members.each do |member| %>
+    <img src=<%= member.photo %>><br>
+    <p>Name: <%= member.name %></p>
+
+    <% if member.allies.size > 0 %>
+      <p>Allies: <%= member.allies.join(', ') %></p>
+    <% else %>
+      <p>Allies: None</p>
+    <% end %>
+
+    <% if member.enemies.size > 0 %>
+      <p>Enemies: <%= member.enemies.join(', ') %></p>
+    <% else %>
+      <p>Enemies: None</p>
+    <% end %>
+
+    <p>Affiliations: <%= member.affiliation %></p>
+  <% end %>
+</section>

@@ -4,6 +4,11 @@ RSpec.describe "Search Page", type: :feature do
   describe "As a user" do
 
     before do
+      json_response = File.read("spec/fixtures/affiliation_members_list.json")
+      
+      stub_request(:get, "https://last-airbender-api.fly.dev/api/v1/characters?affiliation=Fire+Nation")
+        .to_return(status: 200, body: json_response)
+
       visit search_path
     end
 
